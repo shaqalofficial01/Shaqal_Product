@@ -18,13 +18,15 @@
     --color-on-primary-container: #503d00;
     --color-primary: #e6c364;
     --color-surface-container: #1c2028;
+    --color-surface-container-high: #262a33;
     --color-error: #ffb4ab;
     --color-on-surface-variant: #d0c5b2;
     --color-inverse-surface: #dfe2ee;
     --color-outline-variant: #4d4637;
     --color-on-primary: #3d2e00;
     --color-primary-fixed: #ffe08f;
-    --font-mono: "JetBrains Mono"
+    --color-surface-container-low: #181c24;
+    --font-mono: "JetBrains Mono";
 }
 
 body {

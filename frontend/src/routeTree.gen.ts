@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as pagesNot_found_pageRouteImport } from './routes/(pages)/not_found_page'
+import { Route as pagesAuthRole_selectionRouteImport } from './routes/(pages)/auth/role_selection'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,44 @@ const pagesNot_found_pageRoute = pagesNot_found_pageRouteImport.update({
   path: '/not_found_page',
   getParentRoute: () => rootRouteImport,
 } as any)
+const pagesAuthRole_selectionRoute = pagesAuthRole_selectionRouteImport.update({
+  id: '/(pages)/auth/role_selection',
+  path: '/auth/role_selection',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/not_found_page': typeof pagesNot_found_pageRoute
+  '/auth/role_selection': typeof pagesAuthRole_selectionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/not_found_page': typeof pagesNot_found_pageRoute
+  '/auth/role_selection': typeof pagesAuthRole_selectionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/(pages)/not_found_page': typeof pagesNot_found_pageRoute
+  '/(pages)/auth/role_selection': typeof pagesAuthRole_selectionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/not_found_page'
+  fullPaths: '/' | '/not_found_page' | '/auth/role_selection'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/not_found_page'
-  id: '__root__' | '/' | '/(pages)/not_found_page'
+  to: '/' | '/not_found_page' | '/auth/role_selection'
+  id:
+    | '__root__'
+    | '/'
+    | '/(pages)/not_found_page'
+    | '/(pages)/auth/role_selection'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   pagesNot_found_pageRoute: typeof pagesNot_found_pageRoute
+  pagesAuthRole_selectionRoute: typeof pagesAuthRole_selectionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +79,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof pagesNot_found_pageRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(pages)/auth/role_selection': {
+      id: '/(pages)/auth/role_selection'
+      path: '/auth/role_selection'
+      fullPath: '/auth/role_selection'
+      preLoaderRoute: typeof pagesAuthRole_selectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   pagesNot_found_pageRoute: pagesNot_found_pageRoute,
+  pagesAuthRole_selectionRoute: pagesAuthRole_selectionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
