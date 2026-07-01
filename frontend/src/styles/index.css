@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@import "tailwindcss";
+
+@import './components.css';
+
+@import './base.css';
+
+@theme {
+    /* body */
+    --color-background: #0f131c;
+    --color-on-background: #dfe2ee;
+    --color-primary-container: #c9a84c;
+    --color-on-primary-container: #503d00;
+    --color-primary: #e6c364;
+    --color-surface-container: #1c2028;
+    --color-error: #ffb4ab;
+    --color-on-surface-variant: #d0c5b2;
+    --color-inverse-surface: #dfe2ee;
+    --color-outline-variant: #4d4637;
+    --color-on-primary: #3d2e00;
+    --color-primary-fixed: #ffe08f;
+    --font-mono: "JetBrains Mono"
+}
+
+body {
+    font-family: Inter;
+}
