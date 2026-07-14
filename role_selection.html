@@ -1,0 +1,368 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Registration - Role Selection</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "on-surface": "#dfe2ee",
+                            "surface-container-highest": "#31353e",
+                            "secondary-fixed-dim": "#bbc7df",
+                            "on-secondary-fixed": "#101c2e",
+                            "on-background": "#dfe2ee",
+                            "on-surface-variant": "#d0c5b2",
+                            "surface-bright": "#353942",
+                            "surface-tint": "#e6c364",
+                            "on-secondary-container": "#adb9d1",
+                            "on-primary": "#3d2e00",
+                            "primary-fixed": "#ffe08f",
+                            "on-primary-fixed-variant": "#584400",
+                            surface: "#0f131c",
+                            "on-error-container": "#ffdad6",
+                            "on-tertiary": "#283043",
+                            "secondary-container": "#3e495e",
+                            "error-container": "#93000a",
+                            "on-tertiary-container": "#374053",
+                            "inverse-surface": "#dfe2ee",
+                            "tertiary-container": "#a2abc3",
+                            "inverse-on-surface": "#2c3039",
+                            "tertiary-fixed": "#dae2fb",
+                            "primary-fixed-dim": "#e6c364",
+                            "surface-container-lowest": "#0a0e16",
+                            "on-secondary-fixed-variant": "#3c475b",
+                            "on-secondary": "#253144",
+                            "secondary-fixed": "#d7e3fc",
+                            background: "#0f131c",
+                            primary: "#e6c364",
+                            tertiary: "#bec6df",
+                            "on-tertiary-fixed-variant": "#3e475b",
+                            secondary: "#bbc7df",
+                            outline: "#99907e",
+                            "on-error": "#690005",
+                            "surface-variant": "#31353e",
+                            "inverse-primary": "#755b00",
+                            "surface-container": "#1c2028",
+                            error: "#ffb4ab",
+                            "on-primary-container": "#503d00",
+                            "surface-container-low": "#181c24",
+                            "surface-dim": "#0f131c",
+                            "primary-container": "#c9a84c",
+                            "outline-variant": "#4d4637",
+                            "on-tertiary-fixed": "#121b2d",
+                            "surface-container-high": "#262a33",
+                            "on-primary-fixed": "#241a00",
+                            "tertiary-fixed-dim": "#bec6df",
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.125rem",
+                            lg: "0.25rem",
+                            xl: "0.5rem",
+                            full: "0.75rem",
+                        },
+                        spacing: {
+                            12: "12px",
+                            48: "48px",
+                            24: "24px",
+                            16: "16px",
+                            4: "4px",
+                            8: "8px",
+                            32: "32px",
+                        },
+                        fontFamily: {
+                            h1: ["Inter"],
+                            "label-caps": ["Inter"],
+                            display: ["Inter"],
+                            body: ["Inter"],
+                            "mono-amount": ["JetBrains Mono"],
+                            h2: ["Inter"],
+                        },
+                        fontSize: {
+                            h1: [
+                                "24px",
+                                {
+                                    lineHeight: "1.3",
+                                    letterSpacing: "-0.01em",
+                                    fontWeight: "500",
+                                },
+                            ],
+                            "label-caps": [
+                                "11px",
+                                {
+                                    lineHeight: "1",
+                                    letterSpacing: "0.05em",
+                                    fontWeight: "600",
+                                },
+                            ],
+                            display: [
+                                "32px",
+                                {
+                                    lineHeight: "1.25",
+                                    letterSpacing: "-0.02em",
+                                    fontWeight: "500",
+                                },
+                            ],
+                            body: [
+                                "14px",
+                                { lineHeight: "1.5", fontWeight: "400" },
+                            ],
+                            "mono-amount": [
+                                "15px",
+                                { lineHeight: "1", fontWeight: "500" },
+                            ],
+                            h2: [
+                                "20px",
+                                { lineHeight: "1.4", fontWeight: "500" },
+                            ],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            .role-card-active {
+                border-color: #e6c364 !important; /* gold primary */
+            }
+            .role-card-active .active-indicator {
+                display: block !important;
+            }
+            .continue-btn-active {
+                background-color: #e6c364 !important;
+                color: #0f131c !important; /* dark navy/ink */
+                cursor: pointer;
+                pointer-events: auto;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-surface text-on-surface min-h-screen flex flex-col justify-center items-center p-16 md:p-32"
+    >
+        <!-- Main Registration Container -->
+        <main class="w-full max-w-[800px] flex flex-col gap-32">
+            <!-- Header & Progress -->
+            <header class="flex flex-col gap-16">
+                <div
+                    class="flex items-center gap-12 font-label-caps text-label-caps text-on-surface-variant uppercase"
+                >
+                    <span>Step 1 of 4</span>
+                    <div
+                        class="flex-1 h-[2px] bg-surface-container-high rounded-full overflow-hidden"
+                    >
+                        <div class="h-full w-1/4 bg-primary"></div>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-h1 text-h1 text-on-surface">
+                        Who are you?
+                    </h1>
+                    <p class="font-body text-body text-on-surface-variant mt-8">
+                        Select your primary role in the Shaqal TradeOS network
+                        to proceed.
+                    </p>
+                </div>
+            </header>
+            <!-- Role Selection Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16" id="role-grid">
+                <!-- Card 1: Broker -->
+                <button
+                    class="role-card relative text-left bg-surface-container-low border border-outline-variant p-24 rounded-lg flex flex-col gap-16 hover:bg-surface-container transition-colors duration-200"
+                    onclick="selectRole(this)"
+                >
+                    <div
+                        class="active-indicator hidden absolute top-16 right-16 w-12 h-12 rounded-full bg-primary"
+                    ></div>
+                    <span
+                        class="material-symbols-outlined text-[56px] text-primary"
+                        data-weight="fill"
+                        style="font-variation-settings: &quot;FILL&quot; 1"
+                        >handshake</span
+                    >
+                    <div class="flex flex-col gap-8">
+                        <h2 class="font-h2 text-h2 font-bold text-on-surface">
+                            Broker
+                        </h2>
+                        <p class="font-body text-body text-on-surface-variant">
+                            Facilitate trades and connect institutional buyers
+                            with verified suppliers.
+                        </p>
+                    </div>
+                    <div
+                        class="mt-auto font-label-caps text-label-caps text-primary hover:text-primary-fixed-dim inline-flex items-center gap-4"
+                    >
+                        Requirements
+                        <span class="material-symbols-outlined text-[14px]"
+                            >arrow_forward</span
+                        >
+                    </div>
+                </button>
+                <!-- Card 2: Buyer -->
+                <button
+                    class="role-card relative text-left bg-surface-container-low border border-outline-variant p-24 rounded-lg flex flex-col gap-16 hover:bg-surface-container transition-colors duration-200"
+                    onclick="selectRole(this)"
+                >
+                    <div
+                        class="active-indicator hidden absolute top-16 right-16 w-12 h-12 rounded-full bg-primary"
+                    ></div>
+                    <span
+                        class="material-symbols-outlined text-[56px] text-primary"
+                        data-weight="fill"
+                        style="font-variation-settings: &quot;FILL&quot; 1"
+                        >account_balance</span
+                    >
+                    <div class="flex flex-col gap-8">
+                        <h2 class="font-h2 text-h2 font-bold text-on-surface">
+                            Buyer
+                        </h2>
+                        <p class="font-body text-body text-on-surface-variant">
+                            Procure high-value minerals for institutional or
+                            industrial applications.
+                        </p>
+                    </div>
+                    <div
+                        class="mt-auto font-label-caps text-label-caps text-primary hover:text-primary-fixed-dim inline-flex items-center gap-4"
+                    >
+                        Requirements
+                        <span class="material-symbols-outlined text-[14px]"
+                            >arrow_forward</span
+                        >
+                    </div>
+                </button>
+                <!-- Card 3: Supplier -->
+                <button
+                    class="role-card relative text-left bg-surface-container-low border border-outline-variant p-24 rounded-lg flex flex-col gap-16 hover:bg-surface-container transition-colors duration-200"
+                    onclick="selectRole(this)"
+                >
+                    <div
+                        class="active-indicator hidden absolute top-16 right-16 w-12 h-12 rounded-full bg-primary"
+                    ></div>
+                    <span
+                        class="material-symbols-outlined text-[56px] text-primary"
+                        data-weight="fill"
+                        style="font-variation-settings: &quot;FILL&quot; 1"
+                        >local_shipping</span
+                    >
+                    <div class="flex flex-col gap-8">
+                        <h2 class="font-h2 text-h2 font-bold text-on-surface">
+                            Supplier
+                        </h2>
+                        <p class="font-body text-body text-on-surface-variant">
+                            Originate and list verified mineral assets for
+                            institutional trade.
+                        </p>
+                    </div>
+                    <div
+                        class="mt-auto font-label-caps text-label-caps text-primary hover:text-primary-fixed-dim inline-flex items-center gap-4"
+                    >
+                        Requirements
+                        <span class="material-symbols-outlined text-[14px]"
+                            >arrow_forward</span
+                        >
+                    </div>
+                </button>
+                <!-- Card 4: Financier -->
+                <button
+                    class="role-card relative text-left bg-surface-container-low border border-outline-variant p-24 rounded-lg flex flex-col gap-16 hover:bg-surface-container transition-colors duration-200"
+                    onclick="selectRole(this)"
+                >
+                    <div
+                        class="active-indicator hidden absolute top-16 right-16 w-12 h-12 rounded-full bg-primary"
+                    ></div>
+                    <span
+                        class="material-symbols-outlined text-[56px] text-primary"
+                        data-weight="fill"
+                        style="font-variation-settings: &quot;FILL&quot; 1"
+                        >payments</span
+                    >
+                    <div class="flex flex-col gap-8">
+                        <h2 class="font-h2 text-h2 font-bold text-on-surface">
+                            Financier
+                        </h2>
+                        <p class="font-body text-body text-on-surface-variant">
+                            Provide liquidity and financial instruments to back
+                            large-scale trades.
+                        </p>
+                    </div>
+                    <div
+                        class="mt-auto font-label-caps text-label-caps text-primary hover:text-primary-fixed-dim inline-flex items-center gap-4"
+                    >
+                        Requirements
+                        <span class="material-symbols-outlined text-[14px]"
+                            >arrow_forward</span
+                        >
+                    </div>
+                </button>
+            </div>
+            <!-- Actions -->
+            <div
+                class="flex justify-between items-center mt-16 pt-32 border-t border-outline-variant"
+            >
+                <button
+                    class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface inline-flex items-center gap-8 px-16 py-12 transition-colors"
+                >
+                    <span class="material-symbols-outlined text-[16px]"
+                        >arrow_back</span
+                    >
+                    Back
+                </button>
+                <button
+                    class="font-label-caps text-label-caps bg-surface-container-high text-on-surface-variant px-32 py-12 rounded-DEFAULT inline-flex items-center gap-8 transition-colors pointer-events-none opacity-50"
+                    disabled=""
+                    id="continue-btn"
+                >
+                    Continue
+                    <span class="material-symbols-outlined text-[16px]"
+                        >arrow_forward</span
+                    >
+                </button>
+            </div>
+            <!-- Footer Link -->
+            <div class="text-center mt-32">
+                <a
+                    class="font-body text-body text-on-surface-variant hover:text-primary transition-colors"
+                    href="#"
+                    >Already have an account? Sign In</a
+                >
+            </div>
+        </main>
+        <script>
+            function selectRole(selectedCard) {
+                // Remove active class from all cards
+                document.querySelectorAll(".role-card").forEach((card) => {
+                    card.classList.remove("role-card-active");
+                });
+
+                // Add active class to selected card
+                selectedCard.classList.add("role-card-active");
+
+                // Enable Continue button
+                const continueBtn = document.getElementById("continue-btn");
+                continueBtn.disabled = false;
+                continueBtn.classList.remove(
+                    "pointer-events-none",
+                    "opacity-50",
+                    "bg-surface-container-high",
+                    "text-on-surface-variant",
+                );
+                continueBtn.classList.add("continue-btn-active");
+            }
+        </script>
+    </body>
+</html>

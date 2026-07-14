@@ -1,0 +1,126 @@
+@theme {
+    /* logo */
+    --color-logo: #e6c364;
+
+    /* nav */
+    --color-nav-border: #4d4637;
+    --color-nav-bg: #1c2028;
+        /* nav  a */
+        --color-a-text: #e6c364;
+        /* nav button[1] */
+        
+    
+    /* section.hero */
+    --color-section-border: #4d4637;
+        /* pre-heading */
+        --color-pre-heading: #e6c364;
+        --font-pre-heading-family: Inter;
+        --leading-pre-heading: 0;
+        --tracking-pre-heading: 0.05em; 
+        --font-pre-heading--font-weight: 600;
+        --text-pre-heading-size: 12px;
+        /* heading */
+        --text-heading-size: 48px;
+        --font-heading-weight: 600;
+        --color-heading-text: #dfe2ee;
+            /* span */
+            --color-heading-span-text: #e6c364;
+        /* button[1] */
+        --color-hero-button-filled-bg: #e6c364;
+        --color-hero-button-filled-text: #3d2e00;
+        --font-hero-button-filled-family: Inter;
+        --text-hero-button-filled-size: 11px;
+        --leading-hero-button-filled: 1;
+        --tracking-hero-button-filled: 0.05em;
+        --font-hero-button-filled-weight: 600;
+        --color-hero-buttton-filled-hover: #ffe08f;
+        /* button[2] */
+        --color-hero-button-outlined-outline: #4d4637;
+        --color-hero-button-outlined-text: #dfe2ee;
+        --color-hero-button-outlined-bg: #1c2028;
+        --font-hero-button-outlined-family: Inter;
+        --text-hero-button-outlined-size: 11px;
+        --leading-hero-button-outlined: 1;
+        --tracking-hero-button-outlined: 0.05em;
+        --font-hero-button-outlined-weight: 600;
+        --color-hero-button-outlined-border: #e6c364;
+        --text-hero-button-outlined: #e6c364;
+}
+
+@layer components {
+    div.logo > span {
+        color: var(--color-logo);
+    }
+    nav {
+        border: 1px solid var(--color-nav-border);
+        background-color: var(--color-nav-bg);
+
+        a {
+            &:hover {
+                color: var(--color-a-text);
+            }
+        }
+       
+        
+    }div.logo > span {
+        color: var(--color-logo);
+    }
+    section.hero {
+        border: 1px solid var(--color-section-border);
+
+        .pre-heading {
+            color: var(--color-pre-heading);
+            font-size: var(--text-pre-heading-size);
+            font-family: var(--font-pre-heading-family);
+            line-height: var(--leading-pre-heading);
+            letter-spacing: var(--tracking-pre-heading); 
+            font-weight: var(--text-pre-heading--font-weight);
+        }
+
+        .heading {
+            font-size: var(--text-heading-size);
+            font-weight: var(--font-heading-weight);
+            color: var(--color-heading-text);
+            &:span {
+                color: var(--color-heading-span-text);
+            }
+            @media (min-width: 200px) and (max-width: 1023px) {
+                font-size: clamp(34px, 10vw, var(--text-heading-size));
+            }
+        }
+
+        .para {
+            @media (min-width: 200px) and (max-width: 1023px) {
+                font-size: clamp(16px, 5vw, var(--text-lg));
+            }
+        }
+
+        button:nth-child(1) {
+            background-color: var(--color-hero-button-filled-bg);
+            color: var(--color-hero-button-filled-text);
+            font-family: var(--font-hero-button-filled-family);
+            font-size: var(--text-hero-button-filled-size);
+            line-height: var(--leading-hero-button-filled);
+            letter-spacing: var(--tracking-hero-button-filled);
+            font-weight: var(--font-hero-button-filled-weight);
+            &:hover {
+                color: var(--color-hero-buttton-filled-hover);
+            }
+        }
+
+        button:nth-child(2) {
+            border: 2px solid var(--color-hero-button-outlined-outline);
+            color: var(--color-hero-button-outlined-text);
+            background-color: var(--color-hero-button-outlined-bg);
+            font-family: var(--font-hero-button-outlined-family);
+            font-size: var(--text-hero-button-outlined-size);
+            line-height: var(--leading-hero-button-outlined);
+            letter-spacing: var(--tracking-hero-button-outlined);
+            font-weight: var(--font-hero-button-outlined-weight);
+            &:hover {
+                border: 2px solid var(--color-hero-button-outlined-border);
+                color: var(--text-hero-button-outlined);
+            }
+        }
+    }
+}

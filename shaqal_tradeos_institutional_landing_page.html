@@ -1,0 +1,878 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>SHAQAL TradeOS | Institutional Mineral Trade</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link
+            crossorigin=""
+            href="https://fonts.gstatic.com"
+            rel="preconnect"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "on-tertiary-fixed": "#121b2d",
+                            "on-secondary-fixed-variant": "#3c475b",
+                            primary: "#e6c364",
+                            "surface-container-high": "#262a33",
+                            "surface-container-low": "#181c24",
+                            "primary-fixed": "#ffe08f",
+                            "on-primary-fixed-variant": "#584400",
+                            "surface-container-lowest": "#0a0e16",
+                            "on-surface-variant": "#d0c5b2",
+                            "error-container": "#93000a",
+                            "tertiary-fixed-dim": "#bec6df",
+                            "on-primary-container": "#503d00",
+                            outline: "#99907e",
+                            "inverse-surface": "#dfe2ee",
+                            "on-tertiary": "#283043",
+                            secondary: "#bbc7df",
+                            "primary-container": "#c9a84c",
+                            "on-surface": "#dfe2ee",
+                            surface: "#0f131c",
+                            "surface-bright": "#353942",
+                            "on-secondary-fixed": "#101c2e",
+                            "on-primary": "#3d2e00",
+                            "on-secondary": "#253144",
+                            "on-error-container": "#ffdad6",
+                            "secondary-container": "#3e495e",
+                            "tertiary-fixed": "#dae2fb",
+                            "surface-variant": "#31353e",
+                            "outline-variant": "#4d4637",
+                            "inverse-primary": "#755b00",
+                            error: "#ffb4ab",
+                            "on-tertiary-container": "#374053",
+                            "surface-dim": "#0f131c",
+                            "inverse-on-surface": "#2c3039",
+                            "surface-container-highest": "#31353e",
+                            "secondary-fixed-dim": "#bbc7df",
+                            "on-secondary-container": "#adb9d1",
+                            "on-background": "#dfe2ee",
+                            background: "#0f131c",
+                            "secondary-fixed": "#d7e3fc",
+                            "on-primary-fixed": "#241a00",
+                            "surface-tint": "#e6c364",
+                            "surface-container": "#1c2028",
+                            "tertiary-container": "#a2abc3",
+                            "on-error": "#690005",
+                            "primary-fixed-dim": "#e6c364",
+                            tertiary: "#bec6df",
+                            "on-tertiary-fixed-variant": "#3e475b",
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.125rem",
+                            lg: "0.25rem",
+                            xl: "0.5rem",
+                            full: "0.75rem",
+                        },
+                        spacing: {
+                            24: "24px",
+                            4: "4px",
+                            12: "12px",
+                            32: "32px",
+                            8: "8px",
+                            48: "48px",
+                            16: "16px",
+                        },
+                        fontFamily: {
+                            "mono-amount": ["JetBrains Mono"],
+                            h2: ["Inter"],
+                            "label-caps": ["Inter"],
+                            h1: ["Inter"],
+                            display: ["Inter"],
+                            body: ["Inter"],
+                        },
+                        fontSize: {
+                            "mono-amount": [
+                                "15px",
+                                { lineHeight: "1", fontWeight: "500" },
+                            ],
+                            h2: [
+                                "20px",
+                                { lineHeight: "1.4", fontWeight: "500" },
+                            ],
+                            "label-caps": [
+                                "11px",
+                                {
+                                    lineHeight: "1",
+                                    letterSpacing: "0.05em",
+                                    fontWeight: "600",
+                                },
+                            ],
+                            h1: [
+                                "24px",
+                                {
+                                    lineHeight: "1.3",
+                                    letterSpacing: "-0.01em",
+                                    fontWeight: "500",
+                                },
+                            ],
+                            display: [
+                                "48px",
+                                {
+                                    lineHeight: "1.1",
+                                    letterSpacing: "-0.03em",
+                                    fontWeight: "600",
+                                },
+                            ],
+                            body: [
+                                "14px",
+                                { lineHeight: "1.5", fontWeight: "400" },
+                            ],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            body {
+                background-color: #0f131c;
+                color: #dfe2ee;
+                font-family: "Inter", sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+            .hero-pattern {
+                background-image:
+                    radial-gradient(
+                        circle at 50% 0%,
+                        rgba(201, 168, 76, 0.08) 0%,
+                        transparent 60%
+                    ),
+                    linear-gradient(
+                        to bottom,
+                        rgba(15, 19, 28, 0) 0%,
+                        #0f131c 100%
+                    );
+            }
+            .grid-bg {
+                background-size: 40px 40px;
+                background-image:
+                    linear-gradient(
+                        to right,
+                        rgba(77, 70, 55, 0.1) 1px,
+                        transparent 1px
+                    ),
+                    linear-gradient(
+                        to bottom,
+                        rgba(77, 70, 55, 0.1) 1px,
+                        transparent 1px
+                    );
+            }
+        </style>
+    </head>
+    <body
+        class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container"
+    >
+        <!-- Navbar -->
+        <nav
+            class="fixed top-0 w-full border-b border-outline-variant bg-surface-container/80 backdrop-blur-md z-50"
+        >
+            <div
+                class="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between"
+            >
+                <div class="flex items-center gap-2 text-primary">
+                    <span class="material-symbols-outlined font-bold text-24"
+                        >diamond</span
+                    >
+                    <span class="font-h2 text-h2 font-semibold tracking-tight"
+                        >SHAQAL TradeOS</span
+                    >
+                </div>
+                <div
+                    class="hidden md:flex items-center gap-32 font-label-caps text-label-caps text-on-surface-variant"
+                >
+                    <a
+                        class="hover:text-primary transition-colors"
+                        href="#terminal"
+                        >Terminal</a
+                    >
+                    <a
+                        class="hover:text-primary transition-colors"
+                        href="#pipeline"
+                        >Pipeline</a
+                    >
+                    <a
+                        class="hover:text-primary transition-colors"
+                        href="#logistics"
+                        >Logistics</a
+                    >
+                    <a
+                        class="hover:text-primary transition-colors"
+                        href="#governance"
+                        >Governance</a
+                    >
+                </div>
+                <div class="flex items-center gap-16">
+                    <button
+                        class="hidden sm:block font-label-caps text-label-caps text-primary border border-outline-variant hover:border-primary px-16 py-8 rounded transition-colors"
+                    >
+                        Client Login
+                    </button>
+                    <button
+                        class="bg-primary text-on-primary font-label-caps text-label-caps px-16 py-8 rounded hover:bg-primary-fixed transition-colors"
+                    >
+                        Request Access
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Hero Section -->
+        <section
+            class="relative min-h-[921px] flex items-center pt-24 pb-32 overflow-hidden border-b border-outline-variant"
+        >
+            <div class="absolute inset-0 grid-bg opacity-40"></div>
+            <div
+                class="absolute inset-0 hero-pattern pointer-events-none"
+            ></div>
+            <div
+                class="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-24 w-full grid md:grid-cols-12 gap-24 items-center"
+            >
+                <div class="md:col-span-8 lg:col-span-7 flex flex-col gap-24">
+                    <div
+                        class="inline-flex items-center gap-8 border border-outline-variant bg-surface-container/50 px-12 py-4 rounded-full w-max backdrop-blur-sm"
+                    >
+                        <span
+                            class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center"
+                        >
+                            <span
+                                class="w-4 h-4 rounded-full bg-primary animate-pulse"
+                            ></span>
+                        </span>
+                        <span
+                            class="font-label-caps text-label-caps text-primary"
+                            >System Online • v2.4 Active</span
+                        >
+                    </div>
+                    <h1
+                        class="font-display text-display font-semibold text-inverse-surface tracking-tight leading-tight"
+                    >
+                        The Institutional OS for Global
+                        <span class="text-primary">Mineral Trade</span>
+                    </h1>
+                    <p
+                        class="font-body text-body text-on-surface-variant max-w-2xl text-lg md:text-xl leading-relaxed"
+                    >
+                        A unified environment engineered for high-value
+                        commerce. Ensuring cryptographic provenance, enforcing
+                        atomic settlement, and maintaining strict KYC/AML
+                        compliance from extraction to end-user.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-16 mt-8">
+                        <button
+                            class="bg-primary text-on-primary font-label-caps text-label-caps px-24 py-16 rounded hover:bg-primary-fixed transition-colors flex items-center gap-8"
+                        >
+                            Request Terminal Access
+                            <span class="material-symbols-outlined text-16"
+                                >arrow_forward</span
+                            >
+                        </button>
+                        <button
+                            class="border border-outline-variant text-on-surface hover:border-primary hover:text-primary bg-surface-container/30 backdrop-blur-sm font-label-caps text-label-caps px-24 py-16 rounded transition-colors flex items-center gap-8"
+                        >
+                            <span class="material-symbols-outlined text-16"
+                                >monitoring</span
+                            >
+                            View Network Health
+                        </button>
+                    </div>
+                </div>
+                <div class="md:col-span-4 lg:col-span-5 relative mt-32 md:mt-0">
+                    <div
+                        class="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl"
+                    ></div>
+                    <div
+                        class="relative bg-surface-container border border-outline-variant rounded-lg p-16 shadow-2xl"
+                    >
+                        <div
+                            class="flex items-center justify-between mb-16 pb-16 border-b border-outline-variant"
+                        >
+                            <div
+                                class="font-label-caps text-label-caps text-on-surface-variant"
+                            >
+                                Live Market Index
+                            </div>
+                            <span
+                                class="material-symbols-outlined text-primary text-20"
+                                >show_chart</span
+                            >
+                        </div>
+                        <div class="space-y-16">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <div
+                                        class="text-on-surface-variant font-body text-body text-sm mb-4"
+                                    >
+                                        Cobalt (99.8%) LME
+                                    </div>
+                                    <div
+                                        class="font-mono-amount text-mono-amount text-2xl text-inverse-surface"
+                                    >
+                                        $32,450.00
+                                        <span
+                                            class="text-sm text-secondary-fixed"
+                                            >/MT</span
+                                        >
+                                    </div>
+                                </div>
+                                <div
+                                    class="font-mono-amount text-mono-amount text-primary flex items-center gap-4"
+                                >
+                                    <span
+                                        class="material-symbols-outlined text-16"
+                                        >arrow_upward</span
+                                    >
+                                    +1.24%
+                                </div>
+                            </div>
+                            <div
+                                class="h-[1px] bg-outline-variant w-full"
+                            ></div>
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <div
+                                        class="text-on-surface-variant font-body text-body text-sm mb-4"
+                                    >
+                                        Lithium Carbonate EXW
+                                    </div>
+                                    <div
+                                        class="font-mono-amount text-mono-amount text-2xl text-inverse-surface"
+                                    >
+                                        $14,200.00
+                                        <span
+                                            class="text-sm text-secondary-fixed"
+                                            >/MT</span
+                                        >
+                                    </div>
+                                </div>
+                                <div
+                                    class="font-mono-amount text-mono-amount text-error flex items-center gap-4"
+                                >
+                                    <span
+                                        class="material-symbols-outlined text-16"
+                                        >arrow_downward</span
+                                    >
+                                    -0.45%
+                                </div>
+                            </div>
+                            <div
+                                class="h-[1px] bg-outline-variant w-full"
+                            ></div>
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <div
+                                        class="text-on-surface-variant font-body text-body text-sm mb-4"
+                                    >
+                                        Tantalite (30% Ta2O5)
+                                    </div>
+                                    <div
+                                        class="font-mono-amount text-mono-amount text-2xl text-inverse-surface"
+                                    >
+                                        $68.50
+                                        <span
+                                            class="text-sm text-secondary-fixed"
+                                            >/lb</span
+                                        >
+                                    </div>
+                                </div>
+                                <div
+                                    class="font-mono-amount text-mono-amount text-primary flex items-center gap-4"
+                                >
+                                    <span
+                                        class="material-symbols-outlined text-16"
+                                        >arrow_upward</span
+                                    >
+                                    +0.89%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Value Props -->
+        <section class="py-48 border-b border-outline-variant bg-surface">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-24">
+                <div class="text-center max-w-3xl mx-auto mb-48">
+                    <h2 class="font-h1 text-h1 text-inverse-surface mb-16">
+                        Institutional Grade Infrastructure
+                    </h2>
+                    <p class="font-body text-body text-on-surface-variant">
+                        Built for the demanding realities of global commodity
+                        trading, SHAQAL provides unprecedented security, speed,
+                        and transparency.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-24">
+                    <!-- Card 1 -->
+                    <div
+                        class="bg-surface-container border border-outline-variant p-32 rounded-lg hover:border-primary transition-colors group"
+                    >
+                        <div
+                            class="w-48 h-48 rounded bg-surface border border-outline-variant flex items-center justify-center mb-24 group-hover:border-primary transition-colors"
+                        >
+                            <span
+                                class="material-symbols-outlined text-primary text-32"
+                                data-weight="fill"
+                                >shield_locked</span
+                            >
+                        </div>
+                        <h3 class="font-h2 text-h2 text-inverse-surface mb-12">
+                            Cryptographic Provenance
+                        </h3>
+                        <p
+                            class="font-body text-body text-on-surface-variant leading-relaxed mb-24"
+                        >
+                            End-to-end traceability utilizing immutable ledger
+                            technology. Every mineral lot is digitally twinned,
+                            tracking custody, composition, and compliance from
+                            the mine gate to final delivery.
+                        </p>
+                        <div
+                            class="flex items-center gap-8 font-label-caps text-label-caps text-primary cursor-pointer"
+                        >
+                            Explore Architecture
+                            <span class="material-symbols-outlined text-16"
+                                >chevron_right</span
+                            >
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="bg-surface-container border border-outline-variant p-32 rounded-lg hover:border-primary transition-colors group"
+                    >
+                        <div
+                            class="w-48 h-48 rounded bg-surface border border-outline-variant flex items-center justify-center mb-24 group-hover:border-primary transition-colors"
+                        >
+                            <span
+                                class="material-symbols-outlined text-primary text-32"
+                                data-weight="fill"
+                                >account_balance</span
+                            >
+                        </div>
+                        <h3 class="font-h2 text-h2 text-inverse-surface mb-12">
+                            Atomic Settlement
+                        </h3>
+                        <p
+                            class="font-body text-body text-on-surface-variant leading-relaxed mb-24"
+                        >
+                            Instantaneous, risk-free multi-party payouts. Smart
+                            contracts automate complex distribution logic,
+                            clearing funds exactly when verified delivery
+                            conditions are met, eliminating counterparty risk.
+                        </p>
+                        <div
+                            class="flex items-center gap-8 font-label-caps text-label-caps text-primary cursor-pointer"
+                        >
+                            View Settlement Protocol
+                            <span class="material-symbols-outlined text-16"
+                                >chevron_right</span
+                            >
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="bg-surface-container border border-outline-variant p-32 rounded-lg hover:border-primary transition-colors group"
+                    >
+                        <div
+                            class="w-48 h-48 rounded bg-surface border border-outline-variant flex items-center justify-center mb-24 group-hover:border-primary transition-colors"
+                        >
+                            <span
+                                class="material-symbols-outlined text-primary text-32"
+                                data-weight="fill"
+                                >verified_user</span
+                            >
+                        </div>
+                        <h3 class="font-h2 text-h2 text-inverse-surface mb-12">
+                            Institutional Trust
+                        </h3>
+                        <p
+                            class="font-body text-body text-on-surface-variant leading-relaxed mb-24"
+                        >
+                            Automated KYC/AML compliance enforcement. Built-in
+                            regulatory reporting, automated document generation,
+                            and continuous risk scoring of all network
+                            participants and counterparties.
+                        </p>
+                        <div
+                            class="flex items-center gap-8 font-label-caps text-label-caps text-primary cursor-pointer"
+                        >
+                            Review Compliance Docs
+                            <span class="material-symbols-outlined text-16"
+                                >chevron_right</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- The Terminal Showcase -->
+        <section
+            class="py-48 bg-surface-container-lowest border-b border-outline-variant overflow-hidden"
+            id="terminal"
+        >
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-24">
+                <div class="grid lg:grid-cols-2 gap-48 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <!-- Abstract Terminal UI Representation -->
+                        <div
+                            class="relative bg-surface border border-outline-variant rounded-lg p-4 shadow-2xl aspect-[4/3] flex flex-col"
+                        >
+                            <!-- Window Header -->
+                            <div
+                                class="flex items-center justify-between px-12 py-8 border-b border-outline-variant mb-4 bg-surface-container"
+                            >
+                                <div class="flex gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-outline-variant"
+                                    ></div>
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-outline-variant"
+                                    ></div>
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-outline-variant"
+                                    ></div>
+                                </div>
+                                <div
+                                    class="font-label-caps text-label-caps text-on-surface-variant"
+                                >
+                                    TradeOS Terminal
+                                </div>
+                            </div>
+                            <!-- Content Area -->
+                            <div class="flex-1 grid grid-cols-12 gap-4 p-4">
+                                <!-- Sidebar -->
+                                <div
+                                    class="col-span-3 border-r border-outline-variant pr-4 flex flex-col gap-8"
+                                >
+                                    <div
+                                        class="h-24 bg-surface-container rounded"
+                                    ></div>
+                                    <div
+                                        class="h-24 bg-surface-container rounded"
+                                    ></div>
+                                    <div
+                                        class="h-24 bg-surface-container rounded"
+                                    ></div>
+                                    <div
+                                        class="h-24 bg-surface-container rounded mt-auto"
+                                    ></div>
+                                </div>
+                                <!-- Main View -->
+                                <div class="col-span-9 flex flex-col gap-8">
+                                    <div
+                                        class="h-1/3 bg-surface-container border border-outline-variant rounded flex items-center justify-center relative overflow-hidden"
+                                    >
+                                        <div
+                                            class="absolute inset-0 opacity-20"
+                                            data-alt="A dark, high-contrast abstract digital data visualization resembling a stock market chart or financial trading terminal. Glowing amber and gold lines chart upward trends against a deep navy carbon background. Minimalist, professional, and highly technical."
+                                            style="
+                                                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBSWkVybMyT-Y2LTMDot6QLOJiQ-3V8K5Cglh1OzlIpFt1z8p_ChIkvC3ou35SZSwbF6JdkQDSsY87C5t2_XTKoPfWHqvst05oJXzhUS6-XNB4eMbRRTDIpTveez0TjKyzhAE7gNVHpUIMQhqkwMSGUrNmxmOg3maEvRqoL-F-HBVOqjUOtYyIhhcZMjdnhJeoJ61qHURIJYM--R0XQYn65dchxF6_btwrCcU0jd9xXodkQlG-rgQ4kZO_wJQHzUSAkszAojyY1VgE&quot;);
+                                            "
+                                        ></div>
+                                        <span
+                                            class="material-symbols-outlined text-primary text-48 relative z-10"
+                                            >candlestick_chart</span
+                                        >
+                                    </div>
+                                    <div class="flex-1 grid grid-cols-2 gap-8">
+                                        <div
+                                            class="bg-surface-container border border-outline-variant rounded p-12"
+                                        >
+                                            <div
+                                                class="h-8 bg-outline-variant w-1/2 rounded mb-16"
+                                            ></div>
+                                            <div class="space-y-8">
+                                                <div
+                                                    class="h-4 bg-surface-variant rounded w-full"
+                                                ></div>
+                                                <div
+                                                    class="h-4 bg-surface-variant rounded w-3/4"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="bg-surface-container border border-outline-variant rounded p-12 relative overflow-hidden"
+                                        >
+                                            <div
+                                                class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full"
+                                            ></div>
+                                            <div
+                                                class="h-8 bg-primary/50 w-1/3 rounded mb-16"
+                                            ></div>
+                                            <div
+                                                class="h-16 bg-surface-variant rounded w-full mb-8"
+                                            ></div>
+                                            <div
+                                                class="flex items-center gap-8"
+                                            >
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-16"
+                                                    >check_circle</span
+                                                >
+                                                <div
+                                                    class="h-4 bg-surface-variant rounded w-1/2"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h2 class="font-h1 text-h1 text-inverse-surface mb-16">
+                            Command Central
+                        </h2>
+                        <p
+                            class="font-body text-body text-on-surface-variant mb-32"
+                        >
+                            The SHAQAL Terminal provides a unified dashboard for
+                            all trading operations. Monitor live indices, manage
+                            complex multi-leg deals, and review network
+                            consensus in real-time from a secure,
+                            high-performance desktop environment.
+                        </p>
+                        <ul class="space-y-16 mb-32">
+                            <li class="flex gap-12 items-start">
+                                <span
+                                    class="material-symbols-outlined text-primary mt-4"
+                                    >bolt</span
+                                >
+                                <div>
+                                    <strong
+                                        class="font-h2 text-h2 text-inverse-surface text-base block mb-4"
+                                        >Real-Time Execution</strong
+                                    >
+                                    <span
+                                        class="font-body text-body text-on-surface-variant text-sm"
+                                        >Low-latency order routing and instant
+                                        trade confirmation across the
+                                        network.</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="flex gap-12 items-start">
+                                <span
+                                    class="material-symbols-outlined text-primary mt-4"
+                                    >hub</span
+                                >
+                                <div>
+                                    <strong
+                                        class="font-h2 text-h2 text-inverse-surface text-base block mb-4"
+                                        >Network Consensus View</strong
+                                    >
+                                    <span
+                                        class="font-body text-body text-on-surface-variant text-sm"
+                                        >Audit the state of the decentralized
+                                        ledger and verify counterparties
+                                        instantly.</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="flex gap-12 items-start">
+                                <span
+                                    class="material-symbols-outlined text-primary mt-4"
+                                    >analytics</span
+                                >
+                                <div>
+                                    <strong
+                                        class="font-h2 text-h2 text-inverse-surface text-base block mb-4"
+                                        >Advanced Analytics</strong
+                                    >
+                                    <span
+                                        class="font-body text-body text-on-surface-variant text-sm"
+                                        >Proprietary price indices and
+                                        historical volume analysis tools
+                                        built-in.</span
+                                    >
+                                </div>
+                            </li>
+                        </ul>
+                        <button
+                            class="border border-primary text-primary hover:bg-primary/10 font-label-caps text-label-caps px-24 py-12 rounded transition-colors"
+                        >
+                            Explore the Terminal Features
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer
+            class="bg-surface-container-highest border-t border-outline-variant py-32"
+        >
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-24">
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-32 mb-48"
+                >
+                    <div class="col-span-2 lg:col-span-1">
+                        <div class="flex items-center gap-2 text-primary mb-16">
+                            <span
+                                class="material-symbols-outlined font-bold text-24"
+                                >diamond</span
+                            >
+                            <span
+                                class="font-h2 text-h2 font-semibold tracking-tight"
+                                >SHAQAL</span
+                            >
+                        </div>
+                        <p
+                            class="font-body text-body text-sm text-on-surface-variant mb-16"
+                        >
+                            The Institutional OS for Global Mineral Trade.
+                        </p>
+                    </div>
+                    <div>
+                        <h4
+                            class="font-label-caps text-label-caps text-inverse-surface mb-16"
+                        >
+                            Platform
+                        </h4>
+                        <ul
+                            class="space-y-12 font-body text-body text-sm text-on-surface-variant"
+                        >
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Terminal</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Pipeline</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Logistics</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >API Access</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4
+                            class="font-label-caps text-label-caps text-inverse-surface mb-16"
+                        >
+                            Network
+                        </h4>
+                        <ul
+                            class="space-y-12 font-body text-body text-sm text-on-surface-variant"
+                        >
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Governance</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Consensus Specs</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Node Operators</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Network Health</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4
+                            class="font-label-caps text-label-caps text-inverse-surface mb-16"
+                        >
+                            Resources
+                        </h4>
+                        <ul
+                            class="space-y-12 font-body text-body text-sm text-on-surface-variant"
+                        >
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Support</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Security</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Compliance Hub</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="hover:text-primary transition-colors"
+                                    href="#"
+                                    >Documentation</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="pt-32 border-t border-outline-variant flex flex-col md:flex-row items-center justify-between gap-16 font-body text-body text-sm text-on-surface-variant"
+                >
+                    <p>© 2024 SHAQAL TradeOS. All rights reserved.</p>
+                    <div class="flex gap-24">
+                        <a class="hover:text-primary transition-colors" href="#"
+                            >Privacy Policy</a
+                        >
+                        <a class="hover:text-primary transition-colors" href="#"
+                            >Terms of Service</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
