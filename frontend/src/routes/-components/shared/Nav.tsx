@@ -99,7 +99,7 @@ export default function Nav(): ReactNode {
                                     Client Login
                                 </button>
                             </Link>
-                            <Link to="#signup">
+                            <Link to="/auth/role_selection">
                                 <button className="bg-primary text-on-primary  px-4 py-4 rounded hover:bg-primary-fixed transition-colors">
                                     Request Access
                                 </button>
