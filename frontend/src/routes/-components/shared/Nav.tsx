@@ -147,6 +147,18 @@ export default function Nav(): ReactNode {
                     >
                         Governance
                     </Link>
+ <Link
+                        className="hover:text-primary transition-colors"
+                        to="#governance"
+                    >
+                        Login
+                    </Link>
+ <Link
+                        className="hover:text-primary transition-colors"
+                        to="/auth/role_selection"
+                    >
+                        Sign Up
+                    </Link>
                 </div>
             )}
         </>
